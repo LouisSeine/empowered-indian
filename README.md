@@ -11,3 +11,9 @@ Work in progress:
 In order to start, please read the following documentations:
 - FE: [README](frontend/README.md) [CONTRIBUTING](frontend/CONTRIBUTING.md)
 - BE: [README](backend/README.md) [CONTRIBUTING](backend/CONTRIBUTING.md)
+
+## License
+
+- AGPL-3.0 — see [LICENSE](./LICENSE).
+
+Copyright (C) 2025 Roshan Singh
