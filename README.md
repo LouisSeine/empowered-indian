@@ -15,5 +15,3 @@ In order to start, please read the following documentations:
 ## License
 
 - AGPL-3.0 — see [LICENSE](./LICENSE).
-
-Copyright (C) 2025 Roshan Singh
