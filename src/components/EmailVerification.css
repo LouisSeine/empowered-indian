@@ -1,0 +1,128 @@
+.verification-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8fafc;
+  padding: 20px;
+}
+
+.verification-container {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  text-align: center;
+  max-width: 500px;
+  width: 100%;
+}
+
+.verification-content {
+  margin-bottom: 32px;
+}
+
+.verification-content .icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.verification-content.loading .icon {
+  color: #64748b;
+}
+
+.verification-content.success .icon {
+  color: #16a34a;
+}
+
+.verification-content.error .icon {
+  color: #dc2626;
+}
+
+.spinning {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.verification-content h2 {
+  margin: 0 0 16px 0;
+  font-size: 28px;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.verification-content p {
+  margin: 8px 0;
+  color: #64748b;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.verification-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-primary,
+.btn-secondary {
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.btn-primary {
+  background: var(--primary-600, #2563eb);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: var(--primary-700, #1d4ed8);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background: #f1f5f9;
+  color: #475569;
+  border: 1px solid #e2e8f0;
+}
+
+.btn-secondary:hover {
+  background: #e2e8f0;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 640px) {
+  .verification-container {
+    padding: 24px;
+    margin: 16px;
+  }
+  
+  .verification-content .icon {
+    font-size: 40px;
+  }
+  
+  .verification-content h2 {
+    font-size: 24px;
+  }
+  
+  .verification-actions {
+    flex-direction: column;
+  }
+  
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    text-align: center;
+  }
+}

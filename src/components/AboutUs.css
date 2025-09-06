@@ -1,0 +1,386 @@
+/* About Us Page Styles */
+.about-us-page {
+  min-height: 100vh;
+  background: var(--bg-gradient-primary);
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.about-us-page .container {
+  max-width: none;
+  width: 100%;
+  margin: 0;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(10px);
+  border-radius: 0;
+  box-shadow: none;
+  padding: 60px 80px;
+  flex: 1;
+}
+
+.about-us-page .header {
+  margin-bottom: 32px;
+  text-align: center;
+  position: relative;
+}
+
+.back-link {
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--primary-700);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 8px;
+  background: var(--primary-50);
+  border: 1px solid var(--primary-100);
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.back-link:hover {
+  background: var(--primary-100);
+  transform: translateX(-2px);
+}
+
+.page-title {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin: 0;
+  background: linear-gradient(135deg, var(--primary-600) 0%, var(--primary-800) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.about-content {
+  text-align: left;
+  line-height: 1.6;
+  color: #2c3e50;
+}
+
+.about-section {
+  margin-bottom: 40px;
+}
+
+.about-section.intro {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.mission-statement {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: var(--primary-800);
+  background: var(--primary-50);
+  padding: 32px;
+  border-radius: 12px;
+  border-left: 5px solid var(--primary-600);
+  margin: 0;
+}
+
+.about-section h2 {
+  color: var(--primary-800);
+  font-size: 1.6rem;
+  margin-bottom: 20px;
+  border-bottom: 3px solid var(--primary-100);
+  padding-bottom: 10px;
+  position: relative;
+}
+
+.about-section h2::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: var(--primary-600);
+}
+
+.about-section h3 {
+  color: var(--primary-700);
+  font-size: 1.3rem;
+  margin: 24px 0 12px 0;
+}
+
+.about-section p {
+  margin-bottom: 16px;
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.about-section ul {
+  margin: 16px 0;
+  padding-left: 20px;
+}
+
+.about-section li {
+  margin-bottom: 10px;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.about-section a {
+  color: var(--primary-700);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.about-section a:hover {
+  color: var(--primary-800);
+  text-decoration: underline;
+}
+
+/* Vision Box */
+.vision-box {
+  background: linear-gradient(135deg, var(--primary-600) 0%, var(--primary-700) 100%);
+  color: white;
+  padding: 32px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.vision-box p {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin: 0;
+  color: white;
+  line-height: 1.6;
+}
+
+/* Approach Grid */
+.approach-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.approach-item {
+  background: white;
+  padding: 24px;
+  border-radius: 10px;
+  border: 1px solid var(--primary-100);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.approach-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+.approach-item h3 {
+  color: var(--primary-700);
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-size: 1.2rem;
+}
+
+.approach-item p {
+  margin: 0;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Contact List */
+.contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.contact-list li {
+  margin-bottom: 12px;
+  padding: 12px;
+  background: var(--primary-50);
+  border-radius: 8px;
+  border-left: 3px solid var(--primary-600);
+}
+
+/* Call to Action */
+.call-to-action {
+  margin-top: 48px;
+}
+
+.cta-box {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  padding: 40px;
+  border-radius: 16px;
+  text-align: center;
+  border: 2px solid var(--primary-100);
+}
+
+.cta-box h2 {
+  color: var(--primary-800);
+  border: none;
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+}
+
+.cta-box h2::after {
+  display: none;
+}
+
+.cta-link {
+  background: var(--primary-600);
+  color: white !important;
+  padding: 8px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.cta-link:hover {
+  background: var(--primary-700);
+  text-decoration: none;
+}
+
+.tagline {
+  font-size: 1.1rem;
+  color: var(--primary-800);
+  font-weight: 600;
+  margin-top: 20px;
+}
+
+/* Footer */
+.about-footer {
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 2px solid var(--primary-100);
+  text-align: center;
+}
+
+.back-link-bottom {
+  display: inline-block;
+  margin-top: 16px;
+  color: var(--primary-700);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 8px;
+  background: var(--primary-50);
+  border: 1px solid var(--primary-100);
+  transition: all 0.3s ease;
+}
+
+.back-link-bottom:hover {
+  background: var(--primary-100);
+  transform: translateX(-2px);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 1200px) {
+  .about-us-page .container {
+    padding: 50px 60px;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-us-page {
+    padding: 0;
+  }
+
+  .about-us-page .container {
+    padding: 30px 24px;
+  }
+
+  .about-us-page .header {
+    margin-bottom: 24px;
+  }
+
+  .back-link {
+    position: static;
+    display: inline-block;
+    margin-bottom: 16px;
+    font-size: 0.85rem;
+    padding: 6px 12px;
+  }
+
+  .page-title {
+    font-size: 2rem;
+  }
+
+  .about-section {
+    margin-bottom: 32px;
+  }
+
+  .about-section h2 {
+    font-size: 1.4rem;
+  }
+
+  .about-section h3 {
+    font-size: 1.2rem;
+  }
+
+  .mission-statement {
+    font-size: 1.1rem;
+    padding: 24px;
+  }
+
+  .approach-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .vision-box {
+    padding: 24px;
+  }
+
+  .vision-box p {
+    font-size: 1.1rem;
+  }
+
+  .cta-box {
+    padding: 32px 24px;
+  }
+
+  .cta-box h2 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-us-page .container {
+    padding: 24px 16px;
+  }
+
+  .page-title {
+    font-size: 1.8rem;
+  }
+
+  .about-section h2 {
+    font-size: 1.3rem;
+  }
+
+  .mission-statement {
+    font-size: 1rem;
+    padding: 20px;
+  }
+
+  .approach-item {
+    padding: 20px;
+  }
+
+  .vision-box {
+    padding: 20px;
+  }
+
+  .cta-box {
+    padding: 24px 16px;
+  }
+
+  .back-link,
+  .back-link-bottom {
+    font-size: 0.8rem;
+    padding: 6px 10px;
+  }
+}

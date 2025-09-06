@@ -1,0 +1,395 @@
+/* Reset and base styles for Home component */
+.home-page {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #f7fafc;
+}
+
+/* Header */
+.home-page .header {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.05);
+  padding: 2rem 0;
+  text-align: center;
+}
+
+.home-page .header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.home-page .logo {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 8px;
+  background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.home-page .tagline {
+  font-size: 1rem;
+  color: #7f8c8d;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+/* Main content */
+.home-page .main {
+  flex: 1;
+  padding: 2rem 0;
+}
+
+.home-page .main-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.home-page .construction-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  text-align: center;
+}
+
+.home-page .construction-icon {
+  font-size: 3rem;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-8px);
+  }
+  60% {
+    transform: translateY(-4px);
+  }
+}
+
+.home-page .construction-content h2 {
+  font-size: 2rem;
+  color: #2c3e50;
+  margin-bottom: 16px;
+}
+
+.home-page .description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #555;
+  max-width: 100%;
+}
+
+
+/* Mission section */
+.home-page .mission {
+  padding: 36px 28px;
+  margin: 32px 0;
+  width: 100%;
+  max-width: 100%;
+  text-align: center;
+}
+
+.home-page .mission p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  font-weight: 500;
+  color: #2c3e50;
+}
+
+/* CTA section */
+.home-page .cta {
+  margin: 24px 0;
+}
+
+.home-page .cta p {
+  font-size: 1rem;
+  color: #2c3e50;
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+
+.home-page .contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+}
+
+.home-page .contact-info p {
+  font-size: 0.9rem;
+  color: #555;
+  margin: 0;
+}
+
+.home-page .contact-info a {
+  color: #34495e;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.home-page .contact-info a:hover {
+  color: #2c3e50;
+  text-decoration: underline;
+}
+
+/* Status Indicators */
+.home-page .status-indicators {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.home-page .status-card {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.home-page .status-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+}
+
+.home-page .status-card.complete {
+  border-top: 4px solid #10b981;
+}
+
+.home-page .status-card.wip {
+  border-top: 4px solid #f59e0b;
+}
+
+.home-page .status-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.home-page .status-card h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.home-page .status-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  display: inline-block;
+}
+
+.home-page .status-card.complete .status-label {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.home-page .status-card.wip .status-label {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.home-page .status-description {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+
+.home-page .status-cta-button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: #2563eb;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.home-page .status-cta-button:hover:not(.disabled) {
+  background-color: #1d4ed8;
+  transform: translateY(-1px);
+}
+
+.home-page .status-cta-button.disabled {
+  background-color: #9ca3af;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Footer - MPLADS style */
+.home-page .home-footer {
+  background-color: #e2e8f0;
+  color: #2d3748;
+  padding: 2rem 0;
+  margin-top: auto;
+}
+
+.home-page .footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  text-align: center;
+}
+
+.home-page .footer-container p {
+  margin: 0.5rem 0;
+  font-size: 0.875rem;
+  color: #4a5568;
+}
+
+.home-page .footer-container a {
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.home-page .footer-container a:hover {
+  color: #1d4ed8;
+  text-decoration: underline;
+}
+
+/* Mobile-first responsive design */
+@media (max-width: 480px) {
+  .home-page .header {
+    padding: 1.5rem 0;
+  }
+  
+  .home-page .header-container,
+  .home-page .main-container,
+  .home-page .footer-container {
+    padding: 0 0.75rem;
+  }
+  
+  .home-page .logo {
+    font-size: 2rem;
+  }
+  
+  .home-page .construction-content h2 {
+    font-size: 1.6rem;
+  }
+  
+  .home-page .construction-icon {
+    font-size: 2.5rem;
+  }
+  
+  .home-page .description {
+    font-size: 0.95rem;
+  }
+  
+  .home-page .status-indicators {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+  }
+  
+  .home-page .status-card {
+    padding: 1.5rem;
+  }
+  
+  .home-page .status-icon {
+    font-size: 2.5rem;
+  }
+  
+  .home-page .status-card h3 {
+    font-size: 1.25rem;
+  }
+  
+  
+  .home-page .mission {
+    padding: 28px 20px;
+  }
+
+  .home-page .mission p {
+    font-size: 1rem;
+  }
+  
+  .home-page .cta p {
+    font-size: 0.95rem;
+  }
+  
+  .home-page .contact-info p {
+    font-size: 0.85rem;
+  }
+  
+  .home-page .footer-container p {
+    font-size: 0.8rem;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .home-page .header-container,
+  .home-page .main-container,
+  .home-page .footer-container {
+    padding: 0 1.5rem;
+  }
+  
+  .home-page .logo {
+    font-size: 2.2rem;
+  }
+  
+  .home-page .construction-content h2 {
+    font-size: 1.8rem;
+  }
+  
+  .home-page .construction-icon {
+    font-size: 2.8rem;
+  }
+  
+}
+
+@media (min-width: 769px) {
+  .home-page .header-container,
+  .home-page .main-container,
+  .home-page .footer-container {
+    padding: 0 2rem;
+  }
+  
+  .home-page .logo {
+    font-size: 3rem;
+  }
+  
+  .home-page .construction-content h2 {
+    font-size: 2.5rem;
+  }
+  
+  .home-page .construction-icon {
+    font-size: 4rem;
+  }
+  
+  .home-page .description {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .home-page .mission {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .home-page .status-indicators {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

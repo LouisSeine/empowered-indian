@@ -1,0 +1,62 @@
+.mplads-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #f7fafc;
+}
+
+.mplads-main {
+  flex: 1;
+  padding: 2rem 0;
+}
+
+.mplads-container {
+  width: 100%;
+  padding: 0 1rem;
+}
+
+.mplads-footer {
+  background-color: #e2e8f0;
+  color: #1f2937; /* Increased contrast for text */
+  padding: 2rem 0;
+  margin-top: auto;
+}
+
+.footer-container {
+  width: 100%;
+  padding: 0 1rem;
+  text-align: center;
+}
+
+.footer-container p {
+  margin: 0.5rem 0;
+  font-size: 0.95rem; /* Slightly larger for readability */
+}
+
+.footer-container a {
+  color: #1f2937; /* Ensure link contrast on light gray bg */
+  text-decoration: underline; /* Visible affordance */
+}
+
+/* Increase specificity to override generic SiteFooter styles when reused here */
+.mplads-footer.site-footer .footer-container p {
+  font-size: 0.95rem;
+}
+
+.mplads-footer.site-footer .footer-container a {
+  color: #1f2937;
+  text-decoration: underline;
+}
+
+@media (min-width: 768px) {
+  .mplads-main {
+    padding: 3rem 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .mplads-container,
+  .footer-container {
+    padding: 0 2rem;
+  }
+}
