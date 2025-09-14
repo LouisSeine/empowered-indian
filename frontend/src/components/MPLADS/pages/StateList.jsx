@@ -1,3 +1,4 @@
+import React from "react";
 import { useState, useMemo } from 'react';
 import { FiSearch, FiFilter, FiDownload, FiInfo, FiTrendingUp, FiTrendingDown, FiMinus } from 'react-icons/fi';
 import { useStateSummary } from '../../../hooks/useApi';
@@ -9,13 +10,23 @@ import { formatINRCompact } from '../../../utils/formatters';
 import { useFilters } from '../../../contexts/FilterContext';
 import { getPeriodLabel } from '../../../utils/lsTerm';
 import { sanitizeInput } from '../../../utils/inputSanitization';
+import StateCardList from '../components/States/StateCardList';
+import ExportStatesListAsPdf from '../../../utils/exportStatesListAsPdf';
 
 const StateList = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [sortBy, setSortBy] = useState('utilizationPercentage');
   const [sortOrder, setSortOrder] = useState('desc');
-  const [viewMode, setViewMode] = useState('grid'); // grid or list
-  const [filterRange, setFilterRange] = useState('all'); // all, high, medium, low
+  const [viewMode, setViewMode] = useState('grid');
+  const [filterRange, setFilterRange] = useState('all');
+
+  const exportPdfRef = React.useRef(null);
+
+  const updateExportPdfStates = (newStates) => {
+    if (exportPdfRef.current && exportPdfRef.current.updateFilteredStates) {
+      exportPdfRef.current.updateFilteredStates(newStates);
+    }
+  };
 
   // Fetch once; perform filter/sort client-side to avoid extra calls
   const { data, isLoading, error } = useStateSummary();
@@ -43,7 +54,7 @@ const StateList = () => {
         stateMap.set(stateName, state);
       }
     });
-    
+
     const uniqueStates = Array.from(stateMap.values());
 
     const totalAllocated = uniqueStates.reduce((sum, state) => sum + (state.totalAllocated || 0), 0);
@@ -146,14 +157,14 @@ const StateList = () => {
             <SkeletonLoader type="text" width="300px" height="2rem" />
             <SkeletonLoader type="text" width="400px" height="1rem" />
           </div>
-          
+
           <div className="national-stats">
             {[1, 2, 3, 4].map(i => (
               <SkeletonLoader key={i} type="stat" />
             ))}
           </div>
         </div>
-        
+
         <div className="states-controls">
           <div className="search-section">
             <SkeletonLoader type="text" width="300px" height="40px" />
@@ -164,7 +175,7 @@ const StateList = () => {
             <SkeletonLoader type="text" width="100px" height="40px" />
           </div>
         </div>
-        
+
         <div className="performance-insights">
           <div className="insights-grid">
             {[1, 2, 3].map(i => (
@@ -173,7 +184,7 @@ const StateList = () => {
           </div>
         </div>
 
-        
+
         <div className="states-content">
           <SkeletonLoader type="text" width="150px" height="1.5rem" />
           <div className="states-grid">
@@ -200,7 +211,7 @@ const StateList = () => {
         <div className="header-content">
           <div className="title-row">
             <h1>State-wise MPLADS Performance</h1>
-            <InfoTooltip 
+            <InfoTooltip
               content="This dashboard includes data from current and recent MPs with active MPLADS projects. MP counts may exceed current parliamentary seats due to ongoing multi-year projects from previous terms. Data spans multiple parliamentary sessions to show complete project lifecycles."
               position="bottom"
               size="medium"
@@ -248,7 +259,7 @@ const StateList = () => {
               <p className="insight-desc">States with ≥80% utilization</p>
             </div>
           </div>
-          
+
           <div className="insight-card">
             <div className="insight-icon medium">
               <FiMinus />
@@ -262,7 +273,7 @@ const StateList = () => {
               <p className="insight-desc">States with 50-79% utilization</p>
             </div>
           </div>
-          
+
           <div className="insight-card">
             <div className="insight-icon low">
               <FiTrendingDown />
@@ -292,8 +303,8 @@ const StateList = () => {
         <div className="control-buttons">
           <div className="filter-controls">
             <label>Performance:</label>
-            <select 
-              value={filterRange} 
+            <select
+              value={filterRange}
               onChange={(e) => setFilterRange(e.target.value)}
               className="sort-select"
             >
@@ -303,41 +314,45 @@ const StateList = () => {
               <option value="low">Low (&lt;50%)</option>
             </select>
           </div>
-          
-          <div className="sort-controls">
-            <label>Sort by:</label>
-            <select 
-              value={sortBy} 
-              onChange={(e) => handleSort(e.target.value)}
-              className="sort-select"
-            >
-              <option value="utilizationPercentage">Utilization %</option>
-              <option value="totalAllocated">Total Allocated</option>
-              <option value="totalExpenditure">Total Expenditure</option>
-              <option value="totalWorksCompleted">Works Completed</option>
-              <option value="name">State Name</option>
-            </select>
-          </div>
 
-          <div className="view-controls">
-            <button 
-              className={`view-btn ${viewMode === 'grid' ? 'active' : ''}`}
-              onClick={() => setViewMode('grid')}
-            >
-              Grid
-            </button>
-            <button 
-              className={`view-btn ${viewMode === 'list' ? 'active' : ''}`}
-              onClick={() => setViewMode('list')}
-            >
-              List
-            </button>
-          </div>
+          {viewMode === 'grid' ? (
+            <div className="sort-controls">
+              <label>Sort by:</label>
+              <select
+                value={sortBy}
+                onChange={(e) => handleSort(e.target.value)}
+                className="sort-select"
+              >
+                <option value="utilizationPercentage">Utilization %</option>
+                <option value="totalAllocated">Total Allocated</option>
+                <option value="totalExpenditure">Total Expenditure</option>
+                <option value="totalWorksCompleted">Works Completed</option>
+                <option value="name">State Name</option>
+              </select>
+            </div>
+          ) : (<></>)}
 
-          <button className="download-btn" disabled>
-            <FiDownload />
-            Export
-          </button>
+          <div className="view-controls"> 
+            <div>
+              <button
+                className={`view-btn ${viewMode === 'grid' ? 'active' : ''}`}
+                onClick={() => setViewMode('grid')}
+              >
+                Grid
+              </button>
+              <button
+                className={`view-btn ${viewMode === 'list' ? 'active' : ''}`}
+                onClick={() => setViewMode('list')}
+              >
+                List
+              </button>
+            </div>
+            <div style={{ marginLeft: '10px' }}>
+              {filteredStates.length > 0 && viewMode === 'list' && (
+                <ExportStatesListAsPdf ref={exportPdfRef} filteredStates={filteredStates} />
+              )}
+            </div>
+          </div>
         </div>
       </div>
 
@@ -349,7 +364,7 @@ const StateList = () => {
           {filterRange !== 'all' && (
             <div className="active-filter">
               <span className="filter-label">Showing: {filterRange === 'high' ? 'High Performers' : filterRange === 'medium' ? 'Average Performers' : 'Needs Improvement'}</span>
-              <button 
+              <button
                 className="clear-filter"
                 onClick={() => setFilterRange('all')}
                 title="Clear filter"
@@ -360,19 +375,27 @@ const StateList = () => {
           )}
         </div>
         {filteredStates.length > 0 ? (
-          <div className={`states-${viewMode}`}>
-            {filteredStates.map((state, index) => (
-              <StateCard 
-                key={state._id || state.state || index} 
-                state={{
-                  ...state,
-                  name: state.state || state.name || 'Unknown State',
-                  rank: index + 1,
-                  totalStates: states.length
-                }} 
-              />
-            ))}
-          </div>
+          <>
+            {viewMode === 'list' ? (
+              <StateCardList
+                states={filteredStates}
+                onSortedStatesChange={updateExportPdfStates}
+              />) : (
+              <div className={`states-grid`}>
+                {filteredStates.map((state, index) => (
+                  <StateCard
+                    key={state._id || state.state || index}
+                    state={{
+                      ...state,
+                      name: state.state || state.name || 'Unknown State',
+                      rank: index + 1,
+                      totalStates: states.length
+                    }}
+                  />
+                ))}
+              </div>
+            )}
+          </>
         ) : (
           <div className="no-states">
             <p>No states found matching your search.</p>
