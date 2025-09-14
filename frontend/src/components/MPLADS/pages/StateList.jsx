@@ -348,7 +348,7 @@ const StateList = () => {
               </button>
             </div>
             <div style={{ marginLeft: '10px' }}>
-              {filteredStates.length > 0 && viewMode === 'list' && (
+              {filteredStates.length > 0 && (
                 <ExportStatesListAsPdf ref={exportPdfRef} filteredStates={filteredStates} />
               )}
             </div>

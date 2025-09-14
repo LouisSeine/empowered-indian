@@ -584,7 +584,7 @@ const MyDocument = ({ data = [], meta = {}, layout = "cards" }) => {
                       </View>
 
                       <View style={styles.utilBlock}>
-                        <Text style={styles.metricLabel}>EXPENDITURE</Text>
+                        <Text style={styles.metricLabel}>UTILIZATION</Text>
                         <Text style={[styles.utilLabel, { color: utilColor }]}>
                           {pct.toFixed(1)}%
                         </Text>
@@ -599,7 +599,7 @@ const MyDocument = ({ data = [], meta = {}, layout = "cards" }) => {
                       </View>
 
                       <View style={styles.metricBlock}>
-                        <Text style={styles.metricLabel}>WORKs RECOMMENDED</Text>
+                        <Text style={styles.metricLabel}>WORKS RECOMMENDED</Text>
                         <Text style={styles.metricValue}>{s.recommendedWorksCount ?? 0}</Text>
                       </View>
                     </View>
