@@ -3,10 +3,12 @@ const crypto = require('crypto');
 const { secureLogger } = require('./logger');
 
 const transporter = nodemailer.createTransport({
-  service: process.env.EMAIL_SERVICE || 'gmail',
+  host: process.env.SMTP_HOST || 'smtp.gmail.com',
+  port: parseInt(process.env.SMTP_PORT || '587'),
+  secure: (process.env.SMTP_SECURE || 'false').toLowerCase() === 'true', // false for port 587 (TLS), true for port 465 (SSL)
   auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_APP_PASSWORD
+    user: process.env.SMTP_USER || process.env.EMAIL_USER,
+    pass: process.env.SMTP_PASS || process.env.EMAIL_APP_PASSWORD
   }
 });
 
